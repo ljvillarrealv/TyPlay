@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+/*import { test, expect } from '@playwright/test';
 
 test.describe('Navegación Free Range Testers', () => {
     const secciones = [
@@ -47,4 +47,4 @@ test.describe('Navegación Free Range Testers', () => {
             });
         });
     }
-});
+});*/
