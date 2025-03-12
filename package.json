@@ -2,7 +2,11 @@
   "name": "typlay",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+  "regresion": "npx playwright test",
+  "prueba:login": "npx playwright test tests/demo-todo-app.spec.ts"
+}
+,
   "keywords": [],
   "author": "",
   "license": "ISC",
