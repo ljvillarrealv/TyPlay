@@ -21,7 +21,7 @@ jobs:
           node-version: '20'
 
       - name: 📦 Instalar dependencias
-        run: npm install
+        run: npm ci
 
       - name: 🔽 Instalar navegadores de Playwright
         run: npx playwright install --with-deps
@@ -29,7 +29,7 @@ jobs:
       - name: 🚀 Ejecutar pruebas con Playwright
         run: npx playwright test --reporter=html,junit
 
-      - name: 📤 Subir Reporte a QMetry
+      - name: 📤 Subir Reporte a QMetry v1
         run: |
           curl -X POST "https://qtmcloud.qmetry.com/rest/api/automation/importresult" \
             -H "Content-Type: multipart/form-data" \
