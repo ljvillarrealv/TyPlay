@@ -9,23 +9,24 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: lts/*
-    - name: Install dependencies
-      run: npm ci
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
+      - name: 📥 Clonar repositorio
+        uses: actions/checkout@v4
 
-    - name: Regresion Playwright tests
-      run: npm run regresion
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
+      - name: Instalar dependencias
+        run: npm install
 
+      - name: Ejecutar pruebas con Playwright
+        run: npx playwright test --reporter=html,junit
 
-    - uses: actions/upload-artifact@v4
-      if: ${{ !cancelled() }}
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+      - name: Subir Reporte a QMetry
+        run: |
+          curl -X POST "https://qtmcloud.qmetry.com/rest/api/automation/importresult" \
+            -H "Content-Type: multipart/form-data" \
+            -H "apiKey: "0654157b46916c6a9176585330b3ed58d81ee97fd8926591260ea2b127aa10c32bcfadbce66990626269601793b8131044fc535e2ff18973ca64721329ffb0d5051a433a0f37d53f1b5c25506f1a9535" \
+            -F "file=@playwright-report/results.xml" \
+            -F "format=junit"

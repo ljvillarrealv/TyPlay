@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-  "regresion": "npx playwright test",
-  "prueba:login": "npx playwright test tests/demo-todo-app.spec.ts"
+    "test:regresion": "npx playwright test",
+    "test:login": "npx playwright test tests/demo-todo-app.spec.ts",
+    "test:report": "npx playwright show-report",
+    "test:upload-qmetry": "curl -X POST https://qtmcloud.qmetry.com/rest/api/automation/importresult -H \"Content-Type: multipart/form-data\" -H \"apiKey: 7b46916c6a9176585330b3ed58d81ee97fd8926591260ea2b127aa10c32bcfadbce66990626269601793b8131044fc\" -F \"file=@playwright-report/index.html\" -F \"format=html\""
 }
 ,
   "keywords": [],
