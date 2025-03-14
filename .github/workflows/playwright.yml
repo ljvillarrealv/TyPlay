@@ -27,6 +27,6 @@ jobs:
         run: |
           curl -X POST "https://qtmcloud.qmetry.com/rest/api/automation/importresult" \
             -H "Content-Type: multipart/form-data" \
-            -H "apiKey: "0654157b46916c6a9176585330b3ed58d81ee97fd8926591260ea2b127aa10c32bcfadbce66990626269601793b8131044fc535e2ff18973ca64721329ffb0d5051a433a0f37d53f1b5c25506f1a9535" \
+            -H "apiKey: "${{ secrets.QMETRY_API_KEY }}"" \
             -F "file=@playwright-report/results.xml" \
             -F "format=junit"
