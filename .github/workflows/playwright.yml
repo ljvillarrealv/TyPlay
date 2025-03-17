@@ -27,7 +27,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: 🚀 Ejecutar pruebas con Playwright
-        run: npx playwright test --reporter=html,junit
+        run: npx playwright test
 
       - name: 🔽 Subir reporte a Qmetry
         run: |
