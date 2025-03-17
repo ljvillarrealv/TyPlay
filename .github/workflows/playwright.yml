@@ -38,3 +38,5 @@ jobs:
 
       - name: 🔽 Subir reporte a Qmetry
         run: node uploadResults.js
+        env:
+           QMETRY_API_KEY: ${{ secrets.QMETRY_API_KEY }}
