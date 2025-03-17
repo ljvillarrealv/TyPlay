@@ -4,7 +4,7 @@ const path = require('path');
 
 const apiKey = 'TU_CLAVE_API_AQUÍ';
 const qmetryUrl = 'https://qtmcloud.qmetry.com/rest/api/automation/importresult';
-const filePath = path.join(process.cwd(), 'test-results', 'result.xml'); // Ruta relativa en GitHub Actions
+const filePath = path.join(process.cwd(), 'test-results', 'results.xml'); // Ruta relativa en GitHub Actions
 
 
 // 🔍 Listar archivos en test-results para depuración
