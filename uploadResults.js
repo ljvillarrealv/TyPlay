@@ -2,12 +2,16 @@ const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 
-const apiKey = '60fc7c49869b5619ba9d97b93e24b7e91bd74b92b290397ed0cd85aa91cfbc7d0ad08545a7b0bb783929a0448a6438ba308969731c58f1f91823276e1438f634ec3ef76a95afa590e60cc70c8f24466d';
+const apiKey = 'TU_CLAVE_API_AQUÍ';
 const qmetryUrl = 'https://qtmcloud.qmetry.com/rest/api/automation/importresult';
-const filePath = path.join(__dirname, 'test-results', 'result.xml'); // Ruta del XML
+const filePath = path.join(process.cwd(), 'test-results', 'result.xml'); // Ruta relativa en GitHub Actions
 
 async function uploadResults() {
     try {
+        if (!fs.existsSync(filePath)) {
+            throw new Error(`❌ Archivo no encontrado: ${filePath}`);
+        }
+
         const fileData = fs.readFileSync(filePath);
 
         const response = await axios.post(qmetryUrl, fileData, {
