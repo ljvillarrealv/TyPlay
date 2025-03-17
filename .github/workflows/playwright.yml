@@ -30,16 +30,4 @@ jobs:
         run: npx playwright test
 
       - name: 🔽 Subir reporte a Qmetry
-        run: |
-          if [[ -f test-results/results.xml ]]; then
-            echo "El archivo results.xml existe. Subiendo a Qmetry..."
-            curl -X POST "https://qtmcloud.qmetry.com/rest/api/automation/importresult" \
-              -H "Content-Type: multipart/form-data" \
-              -H "apiKey: ${{ secrets.QMETRY_API_KEY }}" \
-              -F "file=@test-results/results.xml" \
-              -F "format=junit"
-          else
-            echo "⚠️ No se encontró results.xml. Puede que no se haya generado correctamente."
-            exit 1
-          fi
-      
+        run: node uploadResults.js
