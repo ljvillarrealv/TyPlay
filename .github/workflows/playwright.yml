@@ -39,4 +39,4 @@ jobs:
       - name: 🔽 Subir reporte a Qmetry
         run: node uploadResults.js
         env:
-           QMETRY_API_KEY: ${{ secrets.QMETRY_API_KEY }}
+           QMETRY_API_KEY: "60fc7c49869b5619ba9d97b93e24b7e91bd74b92b290397ed0cd85aa91cfbc7d0ad08545a7b0bb783929a0448a6438ba308969731c58f1f91823276e1438f634ec3ef76a95afa590e60cc70c8f24466d"
