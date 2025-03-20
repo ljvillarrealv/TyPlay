@@ -2,7 +2,7 @@ const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 
-const apiKey = 'TU_CLAVE_API_AQUÍ';
+const apiKey = 'a8b43526dfa0c9cdf88af962f15474c6747f4322fc4a7a7ee95cd64fa7f85174e4a40441ac55fa527faba83a9e73040d3615af541144404c557e274323395593f5ba84b3980e80d8434e8ac98b8b65ec';
 const qmetryUrl = 'https://qtmcloud.qmetry.com/rest/api/automation/importresult';
 const filePath = path.join(process.cwd(), 'test-results', 'results.xml'); // Ruta relativa en GitHub Actions
 
